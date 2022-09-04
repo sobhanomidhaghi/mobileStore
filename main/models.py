@@ -10,7 +10,7 @@ class Banner(models.Model):
 # Category
 class Category(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="cat_imgs/")
+    image = models.ImageField(upload_to="media/cat_imgs/")
 
     def __str__(self):
         return self.title
@@ -19,7 +19,7 @@ class Category(models.Model):
 # Brand
 class Brand(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="brand_imgs/")
+    image = models.ImageField(upload_to="media/brand_imgs/")
 
     def __str__(self):
         return self.title
@@ -45,7 +45,7 @@ class Size(models.Model):
 # product Model
 class Product(models.Model):
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="product_imgs/")
+    image = models.ImageField(upload_to="media/product_imgs/")
     slug = models.CharField(max_length=400)
     detail = models.TextField()
     specs = models.TextField()
