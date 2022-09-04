@@ -6,11 +6,18 @@ class Banner(models.Model):
     img = models.CharField(max_length=200)
     alt_text = models.CharField(max_length=300)
 
+    class Meta:
+        verbose_name_plural = "1. Banners"
+
 
 # Category
 class Category(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to="media/cat_imgs/")
+
+    class Meta:
+        verbose_name_plural = '2. Categories'
+
 
     def __str__(self):
         return self.title
@@ -24,14 +31,21 @@ class Brand(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name_plural = '3. Brands'
+
+
 
 # Color
 class Color(models.Model):
     title = models.CharField(max_length=100)
-    color_code = models.CharField(max_length=100)
+    color_bg = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name_plural = '4. Colors'
 
 
 # Size
@@ -40,6 +54,9 @@ class Size(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name_plural = "5. Sizes"
 
 
 # product Model
@@ -56,6 +73,10 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name_plural = '6. Products'
+
+
 
 # Product Attribute
 class ProductAttribute(models.Model):
@@ -66,3 +87,6 @@ class ProductAttribute(models.Model):
 
     def __str__(self):
         return self.product.title
+
+    class Meta:
+        verbose_name_plural = '7. ProductAttribute'
