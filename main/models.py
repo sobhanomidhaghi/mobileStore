@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import mark_safe
 
 
 # banner
@@ -18,6 +19,8 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = '2. Categories'
 
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="50" height="50" />' % self.image.url)
 
     def __str__(self):
         return self.title
@@ -35,11 +38,10 @@ class Brand(models.Model):
         verbose_name_plural = '3. Brands'
 
 
-
 # Color
 class Color(models.Model):
     title = models.CharField(max_length=100)
-    color_bg = models.CharField(max_length=100)
+    color_code = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
@@ -47,8 +49,12 @@ class Color(models.Model):
     class Meta:
         verbose_name_plural = '4. Colors'
 
+    def color_bg(self):
+        return mark_safe('<div style="width:30px;height:30px;background-color:%s"></div>' % self.color_code)
 
-# Size
+        # Size
+
+
 class Size(models.Model):
     title = models.CharField(max_length=100)
 
@@ -75,7 +81,6 @@ class Product(models.Model):
 
     class Meta:
         verbose_name_plural = '6. Products'
-
 
 
 # Product Attribute

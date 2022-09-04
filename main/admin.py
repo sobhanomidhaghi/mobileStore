@@ -6,9 +6,15 @@ from django.contrib import admin
 # Register your models here.
 from main.models import *
 
-
 admin.site.register(Banner)
-admin.site.register(Category)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'image_tag')
+
+
+admin.site.register(Category, CategoryAdmin)
+
 admin.site.register(Brand)
 admin.site.register(Size)
 
